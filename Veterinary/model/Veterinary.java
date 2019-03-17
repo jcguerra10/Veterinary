@@ -1,32 +1,23 @@
 package model;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Veterinary{
 	private String name;
-	//
-	private ArrayList<clients>client;
-	private miniRoom mini;
-	//
-	public Veterinary (String name, miniRoom mini){
+	//relations
+	private ArrayList<Clients>client;
+	private ArrayList<MiniRoom>mini;
+	//constructor
+	public Veterinary (String name, MiniRoom mini){
 		this.name = name;
-		this.mini = mini;
+		client = new ArrayList<Clients>();
+		mini = new ArrayList<MiniRoom>();
 	}
-	
+	//get set
 	public String getName(){
 		return name;
 	}
 	public void setName(String name){
 		this.name = name;
 	}
-
-	
-	public miniRoom getMini() {
-		return mini;
-	}
-	public void setMini(miniRoom mini){
-		this.mini = mini;
-	}
-	
-	//
-	
+	//methods
 }
