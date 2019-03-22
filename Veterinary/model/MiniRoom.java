@@ -1,11 +1,12 @@
 package model;
+import java.util.*;
 //attributes
 public class MiniRoom{	
 	private boolean available;
 	//
 	private Pet pet;
 	//
-	public MiniRoom(boolean available, Pet pet){
+	public MiniRoom(boolean available){
 		this.available = available;
 		this.pet = pet;
 	}
@@ -22,5 +23,13 @@ public class MiniRoom{
 	}
 	public void setPet(Pet pet){
 		this.pet = pet;
+	}
+	
+	// methods
+	public String getPetClinicHisto(){
+		String msg = "";
+		if(pet != null)
+			msg += pet.getClinicHisotry();
+		return msg;
 	}
 }
