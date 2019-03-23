@@ -32,51 +32,55 @@ public class Pet{
 	public void setName(String name){
 		this.name = name;
 	}
-	
+
 	public String getType(){
 		return type;
 	}
 	public void setType(String type){
 		this.type = type;
 	}
-	
+
 	public int getAge(){
 		return age;
 	}
 	public void setType(int age){
 		this.age = age;
 	}
-	
+
 	public double getWeight(){
 		return weight;
 	}
 	public void setWeight(double weight){
 		this.weight = weight;
 	}
-	
+
 	public boolean getHospitalizatedBefore(){
 		return hospitalizatedBefore;
 	}
 	public void setHospitalizatedBefore(boolean hospitalizatedBefore){
 		this.hospitalizatedBefore = hospitalizatedBefore;
 	}
-	
+
 	public boolean getHospitalizatedNow(){
 		return hospitalizatedNow;
 	}
 	public void setHospitalizatedNow(boolean hospitalizatedNow){
 		this.hospitalizatedNow = hospitalizatedNow;
 	}
-	
+
 	public ClinicHistory getHisto(){
 		return histo;
 	}
 	public void setHisto(ClinicHistory histo){
 		this.histo = histo;
 	}
-	
+
 	//methods
-	
+	public void addHistoInfo(String statush, String symptomh, String diagnosish, Dated histoDate1h, Dated histoDate2h){
+		ClinicHistory histoh = new ClinicHistory(statush, symptomh, diagnosish, histoDate1h, histoDate2h);
+		setHisto(histoh);
+	}
+
 	public String infoPet(){
 		String msg = "";
 		if(type.equals(DOG)){
@@ -86,7 +90,7 @@ public class Pet{
 		}else if(type.equals(BIRD)){
 			msg += "EL NOMBRE DEL ANIMAL TIPO "+BIRD+" ES: "+name+"\n";
 		}else {
-			msg += "EL NOMBRE DEL ANIMAL TIPO "+type+" ES: "+name+"\n";
+			msg += "EL NOMBRE DEL ANIMAL TIPO "+OTHER+" ES: "+name+"\n";
 		}
 		msg += "SU EDAD ES: "+age+"\n";
 		msg += "PESA: "+weight+"\n";
@@ -107,13 +111,35 @@ public class Pet{
 		}
 		return msg;
 	}
-	
-	public String getClinicHisotry(){
-	
-		return histo.infoClinicHistory();
+
+	public String getClinicHistoryPet(){
+		String msg = "";
+		msg += "|||HISTORIA CLINICA DEL ANIMAL|||\n";
+		msg += "INFO ANIMAL:\n\n";
+		msg += "NOMBRE: "+name+"\n";
+		msg += "PESO: "+weight+"\n";
+		if(type.equals(DOG)){
+			msg += "TIPO"+DOG+"\n";
+		}else if(type.equals(CAT)){
+			msg += "TIPO"+CAT+"\n";
+		}else if(type.equals(BIRD)){
+			msg += "TIPO"+BIRD+"\n";
+		}else {
+			msg += "TIPO"+OTHER+"\n";
+		}
+		msg += "EDAD: "+age+"\n";
+		msg += "||||||||||||||||||||||||||||||||| \n";
+		msg += "EL ESTADO DE LA HISTORIA CLINICA: "+histo.getStatus();
+		msg += "SINTOMAS: \n";
+		msg += histo.getSymptom()+"\n";
+		msg += "DIAGNOSTICO: \n";
+		msg += histo.getDiagnosis()+"\n";
+
+
+
+		return msg;
 	}
-	
 	// public Medicine addMedicine(newMed){
-		
+
 	// }
 }
