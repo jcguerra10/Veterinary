@@ -111,7 +111,7 @@ public class Clients{
 	
 	//HISTORIACLINICA
 	
-	public String histoClinic(int indexPetFH){
+	public String histoClinic(){
 		String msg = "";
 		msg += "|||HISTORIA CLINICA DEL ANIMAL||||\n";
 		msg += "|||||||||||INFO CLIENTE|||||||||||\n";
@@ -119,9 +119,9 @@ public class Clients{
 		msg += "ID: "+id+"\n";
 		msg += "DIRECCION DE RESIDENCIA: "+address+"\n";
 		msg += "CONTACTO: "+phone+"\n";
-		if(pet!=null){
-			msg += pet.get(indexPetFH).getClinicHistoryPet();
-		}
+		// if(pet!=null){
+			// msg += pet.get(indexPetFH).getClinicHistoryPet();
+		// }
 		return msg;
 	}
 	

@@ -126,12 +126,12 @@ public class Veterinary{
 		// }
 		// return msg;
 	// }
-	
-	public String getHistoClinicSpecific(int indexClientFH, int indexPetFH){
-		String msg = "no";
-			msg += client.get(indexClientFH).histoClinic(indexPetFH);
-		return msg;
-	}
+	//este
+	// public String getHistoClinicSpecific(int indexClientFH, int indexPetFH){
+		// String msg = "no";
+			// msg += client.get(indexClientFH).histoClinic(indexPetFH);
+		// return msg;
+	// }
 	
 	// public void addHistoClinicToMini(String histoClinicDesired){
 		// boolean exit=false;

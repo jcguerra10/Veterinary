@@ -15,6 +15,7 @@ public class Pet{
 	private boolean hospitalizatedNow;
 	//
 	private ClinicHistory histo;
+	private Clients cli;
 	//
 	public Pet(String name, String type, int age, double weight, boolean hospitalizatedBefore, boolean hospitalizatedNow){
 		this.name = name;
@@ -74,6 +75,12 @@ public class Pet{
 	public void setHisto(ClinicHistory histo){
 		this.histo = histo;
 	}
+	public Clients getCli(){
+		return cli;
+	}
+	public void setCli(Clients Cli){
+		this.cli = cli;
+	}
 
 	//methods
 	public void addHistoInfo(String statush, String symptomh, String diagnosish, Dated histoDate1h, Dated histoDate2h){
@@ -114,18 +121,20 @@ public class Pet{
 
 	public String getClinicHistoryPet(){
 		String msg = "";
-		
+		if(cli!=null){
+			msg += cli.histoClinic();
+		}
 		msg += "|||||||||||INFO ANIMAL|||||||||||\n";
 		msg += "NOMBRE: "+name+"\n";
 		msg += "PESO: "+weight+"\n";
 		if(type.equals(DOG)){
-			msg += "TIPO"+DOG+"\n";
+			msg += "TIPO: "+DOG+"\n";
 		}else if(type.equals(CAT)){
-			msg += "TIPO"+CAT+"\n";
+			msg += "TIPO: "+CAT+"\n";
 		}else if(type.equals(BIRD)){
-			msg += "TIPO"+BIRD+"\n";
+			msg += "TIPO: "+BIRD+"\n";
 		}else {
-			msg += "TIPO"+OTHER+"\n";
+			msg += "TIPO: "+OTHER+"\n";
 		}
 		msg += "EDAD: "+age+"\n";
 		msg += "||||||||||||||||||||||||||||||||| \n";

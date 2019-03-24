@@ -45,13 +45,18 @@ public class MiniRoom{
 	
 	public String getMiniRoom(){
 		String msg = "";
-		
-		msg += available+"\n";
-		msg += histoClinic+"\n";
-		if(pet!=null)
-			msg += pet.getName()+"\n";
-		else
-			msg += "aquifue\n";
+	
+		msg += "========================== CUARTO ==========================\n";
+		if(available == false){
+			msg += "DISPONIBILIDAD: NO HAY DISPONIBILIDAD \n";
+		}else{
+			msg += "DISPONIBILIDAD: SI HAY DISPONIBILIDAD \n";
+		}
+		if(pet!=null){
+			msg += pet.getClinicHistoryPet()+"\n";
+		}else{
+			msg += "NO HAY ANIMAL O NO EXISTE ALGUNA HISTORIA CLINICA\n";
+		}
 		return msg;
 	}
 	

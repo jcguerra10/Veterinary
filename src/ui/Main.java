@@ -166,20 +166,28 @@ public class Main{
 					System.out.println(vete.shortInfoClientPet(indexClientFH));
 					int indexPetFH = scanInt.nextInt();
 					//
-					Pet addPet = (vete.getPetToMini(indexClientFH, indexPetFH));
-					newHistory += vete.getHistoClinicSpecific(indexClientFH, indexPetFH);
+					Pet addPet = vete.getPetToMini(indexClientFH, indexPetFH);
+					// newHistory += vete.getHistoClinicSpecific(indexClientFH, indexPetFH);
 					boolean ava = false;
 					// 
-					MiniRoom miniWithPet = new MiniRoom (ava, addPet, newHistory);
+					MiniRoom miniWithPet = new MiniRoom (ava, addPet, null);
 					System.out.println(vete.addPetToMini(miniWithPet));
 				break;
 				case(8):
-					System.out.println(vete.showHistoInMiniRooms());
-				
-				break;
-				case(9):
 					System.out.println(vete.nose());
 				break;
+				case(9):
+					System.out.printl("DIGITE LA ESTADIA DEL ANIMAL EN DIAS: ");
+					int daysEst = scanInt.nextInt();
+					System.out.printl("DIGITE EL TIPO DE ANIMAL: \n");
+					System.out.println("PERRO");
+					System.out.println("GATO");
+					System.out.println("AVE");
+					System.out.println("OTRO");
+					String typeEst = scanStr.nextLine();
+					
+					
+					
 				default:
 					System.out.println ("DIGITO NO VALIDO");
 			}
