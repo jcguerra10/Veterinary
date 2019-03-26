@@ -195,6 +195,26 @@ public class Main{
 					System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 					System.out.println("\n");
 				break;
+				case(10):
+					System.out.println("DIGITE EL DUEÑO DE LA MASCOTA QUE QUIERE DAR DE ALTA: \n");
+					System.out.println(vete.shortInfoClient());
+					int indexClientDA = scanInt.nextInt();
+					System.out.println("DIGITE LA MASCOTA A LA QUE QUIERE DAR DE ALTA:\n");
+					System.out.println(vete.shortInfoClientPet(indexClientDA));
+					int indexPetDA = scanInt.nextInt();
+					String nameOfDischarge = vete.namePetSpecific(indexClientDA, indexPetDA);
+					System.out.println("DIGITE EL DIA DE HOY:\n");
+					int dayD = scanInt.nextInt();
+					System.out.println("DIGITE EL MES DE HOY:\n");
+					int monthD = scanInt.nextInt();
+					System.out.println("DIGITE EL ANIO DE HOY:\n");
+					int yearD = scanInt.nextInt();
+					System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+					System.out.println("EL PRECIO DE DEBE ES: "+vete.calculatePriceOfPet(indexClientDA, indexPetDA, dayD, monthD, yearD));
+					System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+					MiniRoom miniDischarge = new MiniRoom (true, null, null);
+					System.out.println (vete.dischargeAPet(nameOfDischarge, miniDischarge));
+				break;
 				default:
 					System.out.println ("DIGITO NO VALIDO");
 			}
@@ -204,15 +224,16 @@ public class Main{
 	public void menu(){
 
 		System.out.println("|||||||||||||||||||||| MENU ||||||||||||||||||||||");
-		System.out.println("1. MOSTRAR LA INFORMACION DE LA VETERINARIA");
-		System.out.println("2. PARA SALIR DEL MENU");
-		System.out.println("3. PARA CREAR CLIENTE");
-		System.out.println("4. PARA AGREGAR ANIMAL A CLIENTE");
-		System.out.println("5. PARA AGREGAR HISTORIA CLINICA");
-		System.out.println("6. PARA AGREGAR NUEVA MEDICINA");
-		System.out.println("7. PARA HOSPITALIZAR");
-		System.out.println("8. PARA SABER LAS INFORMACION DE LOS CUARTOS");
-		System.out.println("9. PARA SABER LAS HISTORIAS CLINICAS DE LOS CUARTOS");
+		System.out.println("1.  MOSTRAR LA INFORMACION DE LA VETERINARIA");
+		System.out.println("2.  PARA SALIR DEL MENU");
+		System.out.println("3.  PARA CREAR CLIENTE");
+		System.out.println("4.  PARA AGREGAR ANIMAL A CLIENTE");
+		System.out.println("5.  PARA AGREGAR HISTORIA CLINICA");
+		System.out.println("6.  PARA AGREGAR NUEVA MEDICINA");
+		System.out.println("7.  PARA HOSPITALIZAR");
+		System.out.println("8.  MOSTRAR LA INFORMACION DE LOS CUARTOS");
+		System.out.println("9.  PARA SABER EL PRECIO DE LA ESTADIA DEL ANIMAL");
+		System.out.println("10. PARA DAR DE ALTA A UN ANIMAL");
 		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||");
 	}
 }

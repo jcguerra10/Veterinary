@@ -98,6 +98,12 @@ public class Veterinary{
 
 		return msg;
 	}
+	
+	public String namePetSpecific(int indexClientDA, int indexPetDA){
+		String msg ="";
+		msg += client.get(indexClientDA).getPetName(indexPetDA);
+		return msg;
+	}
 
 	// public String createHistoryClinicPet(indexClient, indexPet){
 		// String msg = "";
@@ -192,6 +198,19 @@ public class Veterinary{
 		tot += client.get(indexClientCP).calculatePriceOfPet(indexPetCP, dayT, monthT, yearT);
 
 		return tot;
+	}
+	
+	public String dischargeAPet(String nameOfDischarge, MiniRoom miniDischarge){
+		String msg = "";
+		for(int i=0;i<mini.length; i++){
+			if(mini!=null){
+				if(mini[i].showNamePet().equals(nameOfDischarge)){
+					mini[i]=miniDischarge;
+					msg += "SE HA DADO DE ALTA AL ANIMAL";
+				}
+			}
+		}
+		return msg;
 	}
 
 

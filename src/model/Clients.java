@@ -83,6 +83,11 @@ public class Clients{
 		}
 		return msg;
 	}
+	public String getPetName(int indexPetDA){
+		String msg = "";
+		msg += pet.get(indexPetDA).getName();
+		return msg;
+	}
 
 	public String getTotalClinicHistory(){
 		String msg = "";

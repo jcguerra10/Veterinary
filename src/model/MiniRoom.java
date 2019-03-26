@@ -59,7 +59,12 @@ public class MiniRoom{
 		}
 		return msg;
 	}
-	
+	public String showNamePet(){
+		String msg ="";
+		if(pet!=null)
+			msg += pet.getName();
+		return msg;
+	}
 	
 	
 	
