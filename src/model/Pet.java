@@ -46,7 +46,7 @@ public class Pet{
 	private ClinicHistory histo;
 	private Clients cli;
 	//
-	public Pet(String name, String type, int age, double weight, boolean hospitalizatedBefore, boolean hospitalizatedNow){
+	public Pet(String name, String type, int age, double weight, boolean hospitalizatedBefore, boolean hospitalizatedNow, ClinicHistory histo){
 		this.name = name;
 		this.type = type;
 		this.age = age;

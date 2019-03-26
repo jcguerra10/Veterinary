@@ -16,7 +16,7 @@ public class Main{
 		//
 		ClinicHistory clini = new ClinicHistory("--", "--", "abierto", histoDate1, null);
 		//
-		Pet paca = new Pet("paca", "perro", 12, 32, false, true);
+		Pet paca = new Pet("paca", "perro", 12, 32, false, true, null);
 		//
 		Clients juan = new Clients ("juan", 20563, "cll 16 #10-86", "3025874962");
 		//
@@ -109,7 +109,7 @@ public class Main{
 					}
 					hospitalizatedNow = true;
 
-					Pet pet = new Pet(name, type, age, weight, hospitalizatedBefore, hospitalizatedNow);
+					Pet pet = new Pet(name, type, age, weight, hospitalizatedBefore, hospitalizatedNow, null);
 
 					vete.addPettoClient(pet, index);
 
