@@ -46,7 +46,7 @@ public class Veterinary{
 	}
 
 	//methods
-	
+
 	// public void createRooms(MiniRoom room1, MiniRoom room2, MiniRoom room3, MiniRoom room4, MiniRoom room5, MiniRoom room6, MiniRoom room7, MiniRoom room8){
 		// mini[0] = room1;
 		// mini[1] = room2;
@@ -105,20 +105,20 @@ public class Veterinary{
 		// msg += client.get(indexclient).createHistoryClinicPet(indexPet);
 		// return msg;
 	// }
-	
+
 
 	public void createHistoryClinicPet(int indexClient, int indexPet, String statush, String symptomh, String diagnosish, Dated histoDate1h, Dated histoDate2h){
 		if(client != null){
 			client.get(indexClient).createHistoryClinicPet(indexPet, statush, symptomh, diagnosish, histoDate1h, histoDate2h);
 		}
 	}
-	
+
 	public void addMedicine(int iClient, int iPet, Medicine newMed){
 		if(client!=null){
 			client.get(iClient).addMedicine(iPet, newMed);
 		}
 	}
-	
+
 	// public String getHistoClinicSpecific(int indexClientFH, int indexPetFH){
 		// String msg = "";
 		// if(client!=null){
@@ -132,7 +132,7 @@ public class Veterinary{
 			// msg += client.get(indexClientFH).histoClinic(indexPetFH);
 		// return msg;
 	// }
-	
+
 	// public void addHistoClinicToMini(String histoClinicDesired){
 		// boolean exit=false;
 		// int i = 0;
@@ -146,22 +146,22 @@ public class Veterinary{
 			// }
 		// }
 	// }
-	
+
 	public String showHistoInMiniRooms(){
 		String msg = "";
-		
+
 		for(int i=0;i<mini.length;i++){
 			//if(mini[i]!=null){
 				msg += mini[i].getHistoClinic()+"\n";
 			//}
-			
+
 		}
 		return msg;
 	}
 	public Pet getPetToMini(int indexClientFH, int indexPetFH){
 		return client.get(indexClientFH).getPet(indexPetFH);
 	}
-	
+
 	public String addPetToMini(MiniRoom miniWithPet){
 		String msg = "";
 		int exit=0;
@@ -177,13 +177,21 @@ public class Veterinary{
 		}
 		return msg;
 	}
-	
+
 	public String nose(){
 		String msg = "";
 		for(int i=0;i<mini.length;i++){
 			msg += mini[i].getMiniRoom();
 		}
 		return msg;
+	}
+
+	public double calculatePriceOfPet(int indexClientCP, int indexPetCP, int dayT, int monthT, int yearT){
+		double tot = 0.0;
+
+		tot += client.get(indexClientCP).calculatePriceOfPet(indexPetCP, dayT, monthT, yearT);
+
+		return tot;
 	}
 
 

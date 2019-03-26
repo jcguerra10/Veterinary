@@ -102,15 +102,15 @@ public class Clients{
 			pet.get(indexPet).addHistoInfo(statush, symptomh, diagnosish, histoDate1h, histoDate2h);
 		}
 	}
-	
+
 	public void addMedicine(int iPet, Medicine newMed){
 		if(pet!=null){
 			pet.get(iPet).addMedicine(newMed);
 		}
 	}
-	
+
 	//HISTORIACLINICA
-	
+
 	public String histoClinic(){
 		String msg = "";
 		msg += "|||HISTORIA CLINICA DEL ANIMAL||||\n";
@@ -124,9 +124,15 @@ public class Clients{
 		// }
 		return msg;
 	}
-	
+
 	public Pet getPet(int indexPetFH){
 		return pet.get(indexPetFH);
+	}
+
+	public double calculatePriceOfPet(int indexPetCP, int dayT, int monthT, int yearT){
+		double tot = 0.0;
+		tot+=pet.get(indexPetCP).calculatePriceOfPet(dayT, monthT, yearT);
+		return tot;
 	}
 
 }

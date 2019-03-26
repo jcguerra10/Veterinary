@@ -11,7 +11,7 @@ public class Main{
 	}
 
 	public void init(){
-		
+
 		Dated histoDate1 = new Dated (10, 02, 2018);
 		//
 		ClinicHistory clini = new ClinicHistory("--", "--", "abierto", histoDate1, null);
@@ -169,7 +169,7 @@ public class Main{
 					Pet addPet = vete.getPetToMini(indexClientFH, indexPetFH);
 					// newHistory += vete.getHistoClinicSpecific(indexClientFH, indexPetFH);
 					boolean ava = false;
-					// 
+					//
 					MiniRoom miniWithPet = new MiniRoom (ava, addPet, null);
 					System.out.println(vete.addPetToMini(miniWithPet));
 				break;
@@ -177,17 +177,24 @@ public class Main{
 					System.out.println(vete.nose());
 				break;
 				case(9):
-					System.out.printl("DIGITE LA ESTADIA DEL ANIMAL EN DIAS: ");
-					int daysEst = scanInt.nextInt();
-					System.out.printl("DIGITE EL TIPO DE ANIMAL: \n");
-					System.out.println("PERRO");
-					System.out.println("GATO");
-					System.out.println("AVE");
-					System.out.println("OTRO");
-					String typeEst = scanStr.nextLine();
-					
-					
-					
+					System.out.println("DIGITE EL DUEÑO DE LA MASCOTA QUE QUIERE CALCULAR EL PRECIO: \n");
+					System.out.println(vete.shortInfoClient());
+					int indexClientCP = scanInt.nextInt();
+					System.out.println("DIGITE LA MASCOTA A LA QUE QUIERE CALCULAR EL PRECIO:\n");
+					System.out.println(vete.shortInfoClientPet(indexClientCP));
+					int indexPetCP = scanInt.nextInt();
+					System.out.println("DIGITE EL DIA DE HOY:\n");
+					int dayT = scanInt.nextInt();
+					System.out.println("DIGITE EL MES DE HOY:\n");
+					int monthT = scanInt.nextInt();
+					System.out.println("DIGITE EL ANIO DE HOY:\n");
+					int yearT = scanInt.nextInt();
+					System.out.println("\n");
+					System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+					System.out.println("EL PRECIO DE DEBE ES: "+vete.calculatePriceOfPet(indexClientCP, indexPetCP, dayT, monthT, yearT));
+					System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+					System.out.println("\n");
+				break;
 				default:
 					System.out.println ("DIGITO NO VALIDO");
 			}
@@ -196,7 +203,7 @@ public class Main{
 
 	public void menu(){
 
-		System.out.println("||||||||||||||||||| MENU |||||||||||||||||||");
+		System.out.println("|||||||||||||||||||||| MENU ||||||||||||||||||||||");
 		System.out.println("1. MOSTRAR LA INFORMACION DE LA VETERINARIA");
 		System.out.println("2. PARA SALIR DEL MENU");
 		System.out.println("3. PARA CREAR CLIENTE");
@@ -204,7 +211,8 @@ public class Main{
 		System.out.println("5. PARA AGREGAR HISTORIA CLINICA");
 		System.out.println("6. PARA AGREGAR NUEVA MEDICINA");
 		System.out.println("7. PARA HOSPITALIZAR");
-		System.out.println("8. PARA SABER LAS HISTORIAS CLINICAS DE LOS CUARTOS");
-		System.out.println("||||||||||||||||||||||||||||||||||||||||||||");
+		System.out.println("8. PARA SABER LAS INFORMACION DE LOS CUARTOS");
+		System.out.println("9. PARA SABER LAS HISTORIAS CLINICAS DE LOS CUARTOS");
+		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||");
 	}
 }

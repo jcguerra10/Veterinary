@@ -2,10 +2,39 @@ package model;
 import java.util.*;
 //
 public class Pet{
+	public static final double KG1 = 1.0;
+	public static final double KG12 = 3.0;
+	public static final double KG2 = 3.1;
+	public static final double KG22 = 10.0;
+	public static final double KG3 = 10.1;
+	public static final double KG32 = 20;
+	//
+	public static final double PRICE1G = 10000.0;
+	public static final double PRICE2G= 12000.0;
+	public static final double PRICE3G = 15000.0;
+	public static final double PRICE4G = 20000.0;
+	//
+	public static final double PRICE1P = 15000.0;
+	public static final double PRICE2P= 17000.0;
+	public static final double PRICE3P = 20000.0;
+	public static final double PRICE4P = 25000.0;
+	//
+	public static final double PRICE1A = 10000.0;
+	public static final double PRICE2A= 12000.0;
+	public static final double PRICE3A = 20000.0;
+	public static final double PRICE4A = 25000.0;
+	//
+	public static final double PRICE1O = 15000.0;
+	public static final double PRICE2O= 17000.0;
+	public static final double PRICE3O = 20000.0;
+	public static final double PRICE4O = 25000.0;
+	//
 	public static final String DOG = "perro";
 	public static final String CAT = "gato";
 	public static final String BIRD = "ave";
 	public static final String OTHER = "otro";
+	//
+	//
 	//
 	private String name;
 	private String type;
@@ -90,6 +119,8 @@ public class Pet{
 
 	public String infoPet(){
 		String msg = "";
+		msg += "=====================================================\n";
+		msg += "=====================================================\n";
 		if(type.equals(DOG)){
 			msg += "EL NOMBRE DEL ANIMAL TIPO "+DOG+" ES: "+name+"\n";
 		}else if(type.equals(CAT)){
@@ -153,4 +184,66 @@ public class Pet{
 			histo.addMedicine(newMed);
 		}
 	}
+
+	public double calculatePriceOfPet(int dayCO, int monthCO, int yearCO){
+		
+		double tot = 0.0;
+		if(histo!=null){
+			tot += histo.knowMedicineCost();
+			if(type.equals(CAT)){
+				if(weight>=KG1&&weight<=KG12){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE1G;
+				}else if(weight>=KG2&&weight<=KG22){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE2G;
+				}else if(weight>=KG3&&weight<=KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE3G;
+				}else if(weight<KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE4G;
+				}else{
+					tot+=0;
+				}
+			}else if(type.equals(DOG)){
+				if(weight>=KG1&&weight<=KG12){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE1P;
+				}else if(weight>=KG2&&weight<=KG22){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE2P;
+				}else if(weight>=KG3&&weight<=KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE3P;
+				}else if(weight<KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE4P;
+				}else{
+					tot+=0;
+				}
+			}else if(type.equals(BIRD)){
+				if(weight>=KG1&&weight<=KG12){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE1A;
+				}else if(weight>=KG2&&weight<=KG22){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE2A;
+				}else if(weight>=KG3&&weight<=KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE3A;
+				}else if(weight<KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE4A;
+				}else{
+					tot+=0;
+				}
+			}else{
+				if(weight>=KG1&&weight<=KG12){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE1O;
+				}else if(weight>=KG2&&weight<=KG22){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE2O;
+				}else if(weight>=KG3&&weight<=KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE3O;
+				}else if(weight<KG32){
+					tot += (histo.calculateDays(dayCO, monthCO, yearCO))*PRICE4O;
+				}else{
+					tot+=0;
+				}
+			}
+			
+		}
+		return tot;
+	}
+	
+	
+	
 }

@@ -89,5 +89,61 @@ public class ClinicHistory{
 	public void addMedicine(Medicine newMed){
 		medi.add(newMed);
 	}
+	
+	public double knowMedicineCost(){
+		double tot = 0.0;
+		if(medi!=null){
+			for(int i=0;i<medi.size();i++){
+				tot+=medi.get(i).getDoseCost(); 
+			}
+		}
+		return tot;
+	}
+	
+	public int calculateDays(int dayCO, int monthCO, int yearCO){
+		int tot = 0;	
+		if(histoDate1.getYear()<yearCO){
+			if(histoDate1.getMonth()<=monthCO){
+				tot+=360;
+				if(histoDate1.getDay()<dayCO){
+					tot += (monthCO-histoDate1.getMonth())*30;
+					tot += dayCO-histoDate1.getDay();
+				}else if(histoDate1.getDay()>dayCO){
+					tot += ((monthCO-histoDate1.getMonth())-1)*30;
+					tot -= dayCO-histoDate1.getDay();
+				}
+			}else if(histoDate1.getMonth()>monthCO){
+				if(histoDate1.getDay()<dayCO){
+					tot += ((histoDate1.getMonth()-monthCO)-12)*30;
+					tot += dayCO-histoDate1.getDay();
+				}else if(histoDate1.getDay()>dayCO){
+					tot += ((monthCO-histoDate1.getMonth())-1)*30;
+					tot -= dayCO-histoDate1.getDay();
+				}
+			}
+		}else if(histoDate1.getYear()==yearCO){
+			if(histoDate1.getMonth()<=monthCO){
+				if(histoDate1.getDay()<dayCO){
+					tot += (monthCO-histoDate1.getMonth())*30;
+					tot += dayCO-histoDate1.getDay();
+				}else if(histoDate1.getDay()>dayCO){
+					tot += ((monthCO-histoDate1.getMonth())-1)*30;
+					tot -= dayCO-histoDate1.getDay();
+				}
+			}else if(histoDate1.getMonth()>monthCO){
+				if(histoDate1.getDay()<dayCO){
+					tot += ((histoDate1.getMonth()-monthCO)-12)*30;
+					tot += dayCO-histoDate1.getDay();
+				}else if(histoDate1.getDay()>dayCO){
+					tot += ((monthCO-histoDate1.getMonth())-1)*30;
+					tot -= dayCO-histoDate1.getDay();
+				}
+			}
+			
+		}else{
+			tot+=0.0;
+		}
+		return tot;
+	}
 
 }
